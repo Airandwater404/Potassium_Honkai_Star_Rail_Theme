@@ -143,17 +143,6 @@
 }
 
 :root[data-theme] .sidebar::after { text-orientation: upright; letter-spacing: 0.12em; font-size: 16px; }
-
-/* Violet-to-blue gradient bar on the active tab and the status bar. */
-:root[data-theme] .tab-bar .strip .tab { background-image: none; }
-:root[data-theme] .tab-bar .strip .tab::before,
-:root[data-theme] .tab-bar .strip .tab::after { display: none; }
-:root[data-theme] .tab-bar .strip .tab.is-active {
-  background-color: rgba(255, 255, 255, 0.85);
-  box-shadow: inset 0 -3px 0 #6e54e6;
-  color: #1d1a33;
-  font-weight: 700;
-}
 :root[data-theme] .status { background-image: linear-gradient(90deg, rgba(150, 90, 230, 0.25), rgba(80, 150, 240, 0.2) 50%, transparent 80%); }
 :root[data-theme] .splitter-x { background-image: linear-gradient(180deg, #9a5ae6, #4f96f0) !important; width: 2px; }
 :root[data-theme] .sidebar .section-title { color: #6e54e6; letter-spacing: 0.1em; }
@@ -166,6 +155,24 @@
   color: transparent;
   font-size: 42px;
   letter-spacing: 0.1em;
+}
+
+/* Tabs. */
+:root[data-theme] .tab-bar .strip .tab { background-image: none; }
+:root[data-theme] .tab-bar .strip .tab::before,
+:root[data-theme] .tab-bar .strip .tab::after { display: none; top: auto; width: auto; }
+
+/* The active tab gets a violet-to-blue gradient frame. */
+:root[data-theme] .tab-bar .strip { align-items: center; gap: 4px; padding: 0 6px; }
+:root[data-theme] .tab-bar .strip .tab { height: 30px; border: 2px solid transparent; border-radius: 8px; }
+:root[data-theme] .tab-bar .strip .tab.is-active { background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(90deg, #8b4fe0, #4f96f0) border-box; color: #1d1a33; font-weight: 700; }
+
+/* Script tab icon. */
+:root[data-theme] .tab-bar .strip .tab:not(.no-close) .tab-glyph > * { display: none; }
+:root[data-theme] .tab-bar .strip .tab:not(.no-close) .tab-glyph {
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8v12'/%3E%3Cpath d='M12 10.5C10 5 4.2 3 3.2 6.2S5 12.6 12 12'/%3E%3Cpath d='M12 10.5c2-5.5 7.8-7.5 8.8-4.3S19 12.6 12 12'/%3E%3Cpath d='M12 13c-2.2 1-5.8 3.2-4.9 5.8S11.3 18.4 12 16'/%3E%3Cpath d='M12 13c2.2 1 5.8 3.2 4.9 5.8S12.7 18.4 12 16'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8v12'/%3E%3Cpath d='M12 10.5C10 5 4.2 3 3.2 6.2S5 12.6 12 12'/%3E%3Cpath d='M12 10.5c2-5.5 7.8-7.5 8.8-4.3S19 12.6 12 12'/%3E%3Cpath d='M12 13c-2.2 1-5.8 3.2-4.9 5.8S11.3 18.4 12 16'/%3E%3Cpath d='M12 13c2.2 1 5.8 3.2 4.9 5.8S12.7 18.4 12 16'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
 }
 
 /* Animated wallpaper behind the whole app. */
